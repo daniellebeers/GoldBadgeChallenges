@@ -19,10 +19,10 @@ namespace Challenge_3
             DateTime e4 = new DateTime(2018, 06, 4);
 
 
-            Event Golf = new Event("Golf", 30, e1, 10);
-            Event Bowling = new Event("Bowling", 20, e2, 15);
-            Event AmusementPark = new Event("Amusement Park", 20, e3, 45);
-            Event Concert = new Event("Concert", 25, e4, 40);
+            Event Golf = new Event(EventType.golf, 30, e1, 10);
+            Event Bowling = new Event(EventType.bowling, 20, e2, 15);
+            Event AmusementPark = new Event(EventType.amusementPark, 20, e3, 45);
+            Event Concert = new Event(EventType.concert, 25, e4, 40);
 
 
             eventRepo.AddEventTypesToList(Golf);
@@ -55,8 +55,11 @@ namespace Challenge_3
                     while (true)
                     {
 
-                        Console.WriteLine("What is the type of Event?");
-                        string eventType = Console.ReadLine();
+                        Console.WriteLine("Choose 1 for Golf, 2 for Bowling, 3 for Amusement Park, 4. Concert");
+                        string EventType = Console.ReadLine();
+                        int x = int.Parse(EventType);
+                        EventType eventType = (EventType)x;
+
 
                         Console.WriteLine("How many people will go to the Event?");
                         int eventNumber = int.Parse(Console.ReadLine());
@@ -79,24 +82,26 @@ namespace Challenge_3
                         else if (theAnswer == "n")
                         {
                             eventRepo.PrintList(eventRepo.getEventsList());
-                            Console.ReadLine();
-                            continue;
-
+                            break;
                         }
                     }   
                 }
 
-                        else if (choice == "3")//total cost of all outings
+                        else if (choice == "3")
                     {
-                        Console.WriteLine();
-                        //  int = (G +  B + AP +  C);
+                        Console.WriteLine("The total sum of all outings is $" + eventRepo.AddAllOutings());
                         Console.ReadLine();
                     }
 
 
-                    else if (choice == "4")//cost of outings by type
+                    else if (choice == "4")
                     {
-                        Console.WriteLine();
+                        Console.WriteLine("What type of event do you want to see the total of? Choose 1 for Golf, 2 for Bowling, 3 for Amusement Park, 4 Concert");
+                        string EventType = Console.ReadLine();
+                        int x = int.Parse(EventType);
+                        EventType eventType = (EventType)x;
+
+                        Console.WriteLine("The total sum of this type of event is $" + eventRepo.TypeSum(eventType));
 
                         Console.ReadLine();
                     }

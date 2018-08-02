@@ -8,18 +8,18 @@ namespace Challenge_5
 {
     class CustomerRepository
     {
-        public List<Customer> _FoodMenuItems = new List<Customer>();
+        public List<Customer> _customerList = new List<Customer>();
 
 
-        public void AddMenuItemToList(Customer MenuItem)
+        public void AddCustomerToList(Customer)
         {
-            _FoodMenuItems.Add(MenuItem);
+            _customerList.Add(Customer);
         }
 
 
         public List<Customer> GetList()
         {
-            return _FoodMenuItems;
+            return _customerList;
         }
 
 
@@ -27,14 +27,14 @@ namespace Challenge_5
         {
             Customer customer = new Customer();
 
-            foreach (Customer FoodMenuItem in _FoodMenuItems)
+            foreach (Customer FoodMenuItem in _customerList)
             {
-                if (name == FoodMenuItem.mealName)
-                    mealName = FoodMenuItem;
+                if (name == Customer.firstName)
+                    firstName = FoodMenuItem;
                 break;
             }
 
-            return mealName;
+            return firstName;
 
         }
 

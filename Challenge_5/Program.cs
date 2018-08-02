@@ -19,6 +19,7 @@ namespace Challenge_5
             Console.WriteLine("\n");
             Console.WriteLine("Would you like to 1.Add a Customer, 2. Remove an Customer, or 3. List all Customers?");
             string choice = Console.ReadLine();
+
             if (choice == "1")
             {
                 while (true)
@@ -34,8 +35,8 @@ namespace Challenge_5
                     string type = Console.ReadLine();
 
                    
-                    //Food userFood = new Food(foodMealNumber, foodMealName, foodDescription, foodIngredients, foodPrice);
-                    //foodRepo.AddMenuItemToList(userFood);
+                    customer userFood = new Customer(firstName, lastName, type);
+                    customerRepo.AddCustomerToList(userCustomer);
 
 
                     Console.WriteLine("Do you want to add annother customer?");
@@ -57,7 +58,7 @@ namespace Challenge_5
 
             else if (choice == "2")
             {
-                Console.WriteLine("What customer do you want to remove?");
+                Console.WriteLine("Which customer do you want to remove?");
                 string item = Console.ReadLine();
                 customerRepo.removeMenuItemFromList(item);
                 customerRepo.printList(customerRepo.GetList());
@@ -71,7 +72,7 @@ namespace Challenge_5
             Console.ReadLine();
 
 
-            foodRepo.AddMenuItemToList(omelette);
+            foRepo.AddMenuItemToList(omelette);
             foodRepo.AddMenuItemToList(pancakes);
             foodRepo.AddMenuItemToList(blt);
             foodRepo.AddMenuItemToList(parfait);

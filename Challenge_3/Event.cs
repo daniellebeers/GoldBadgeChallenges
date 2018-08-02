@@ -6,17 +6,26 @@ using System.Threading.Tasks;
 
 namespace Challenge_3
 {
-    class Event
+    public enum EventType
     {
-        //properties
-        public string eventType { get; set; }
-        public int eventNumber { get; set; }
-        public DateTime dateEvent { get; set; }
-        public int costPer { get; set; }
-        public int costTotal { get; set; }
+        golf = 1,
+        bowling,
+        amusementPark,
+        concert
+    }
 
-        //constructor
-        public Event(string theEventType, int theEventNumber, DateTime theEventDate, int theCostPer)
+
+        public class Event
+        {
+            public EventType eventType{ get; set; }
+            public int eventNumber { get; set; }
+            public DateTime dateEvent { get; set; }
+            public int costPer { get; set; }
+            public int costTotal { get; set; }
+
+
+
+        public Event(EventType theEventType, int theEventNumber, DateTime theEventDate, int theCostPer)
         {
             eventType = theEventType;
             eventNumber = theEventNumber;
@@ -24,15 +33,19 @@ namespace Challenge_3
             costPer = theCostPer;
             costTotal = theCostPer * theEventNumber;
         }
-         
+
         public Event()
         {
         }
 
+
         public override string ToString()
         {
-            string stringToReturn = $"{eventType}\n{eventNumber} people\t{dateEvent.ToShortDateString()}\t ${costPer} each \t ${costTotal} Total Cost";
+            string stringToReturn = $"\n{eventType}\n{eventNumber} people\t{dateEvent.ToShortDateString()}\t ${costPer} each \t ${costTotal} Total Cost";
             return stringToReturn;
         }
     }
 }
+
+
+
